@@ -1,0 +1,36 @@
+CREATE TABLE Leads (
+         ID BIGINT IDENTITY PRIMARY KEY,
+         Contact_first_name VARCHAR(MAX) NOT NULL,
+         Contact_full_name VARCHAR(MAX) NOT NULL,
+         Contact_phone_number VARCHAR(MAX) NOT NULL,
+         Contact_email VARCHAR(MAX) NOT NULL,
+         Date_created DATETIME,
+         Suburb VARCHAR(MAX),
+         Category VARCHAR(MAX),
+         Details VARCHAR(MAX),
+         Price DECIMAL(10, 2),
+         Statu VARCHAR(MAX)
+     );
+
+INSERT INTO Leads (
+                Contact_first_name,
+                Contact_full_name,
+                Contact_phone_number,
+                Contact_email,
+                Date_created,
+                Suburb,
+                Category,
+                Details,
+                Price,
+                Statu
+            ) VALUES
+                ('Mariana', 'Mariana Costa', '11998877665', 'mariana.costa@example.com', GETDATE(), 'São Paulo', 'Desenvolvimento Web', 'Depois de ser demitida, comecei a vender doces pela internet e agora preciso de um site para levar meu negócio mais longe.', 4800, 'Invited'),
+                ('Rogério', 'Rogério Mendes', '31997456321', 'rogerio.mendes@example.com', GETDATE(), 'Belo Horizonte', 'Aplicativo Mobile', 'Tenho uma filha com necessidades especiais e quero criar um app com atividades educativas que ajude outras famílias como a minha.', 8200, 'Invited'),
+                ('Tatiane', 'Tatiane Lima', '21998844552', 'tatiane.lima@example.com', GETDATE(), 'Rio de Janeiro', 'Marketing', 'Minha loja física teve que fechar por conta da pandemia. Estou tentando reerguer no digital e preciso de uma campanha forte para o Dia das Mães.', 6500, 'Invited'),
+                ('Samuel', 'Samuel Oliveira', '31991122334', 'samuel.oliveira@example.com', GETDATE(), 'Uberaba', 'Sistemas', 'Somos uma ONG pequena que ajuda jovens em situação de rua. Queremos um sistema simples para cadastrar os atendimentos e acompanhar o progresso deles.', 2900, 'Invited'),
+                ('Aline', 'Aline Duarte', '11997766544', 'aline.duarte@example.com', GETDATE(), 'Guarulhos', 'Branding', 'Após 15 anos trabalhando como manicure, abri meu próprio estúdio. Quero uma identidade visual que transmita meu estilo e conquiste clientes.', 3100, 'Invited'),
+                ('Gustavo', 'Gustavo Ferreira', '51995544332', 'gustavo.ferreira@example.com', GETDATE(), 'Porto Alegre', 'Design Gráfico', 'Minha mãe faz bordados incríveis e quero ajudá-la a vender online. Preciso de um catálogo digital com os produtos dela.', 3800, 'Invited'),
+                ('Letícia', 'Letícia Prado', '71991123456', 'leticia.prado@example.com', GETDATE(), 'Salvador', 'Consultoria', 'Estou tentando sair de um relacionamento abusivo e recomeçar como autônoma. Preciso de orientação para organizar meu negócio de fotografia.', 4700, 'Invited'),
+                ('Diego', 'Diego Santos', '61998877664', 'diego.santos@example.com', GETDATE(), 'Brasília', 'E-commerce', 'Meu pai tem uma loja de ferramentas há 20 anos. Quero trazer ele pro digital, com uma loja simples e funcional.', 7700, 'Invited'),
+                ('Renata', 'Renata Almeida', '11990011223', 'renata.almeida@example.com', GETDATE(), 'Osasco', 'Fotografia', 'Perdi minha irmã recentemente e quero montar uma exposição com as fotos que tiramos juntas durante nossa última viagem.', 2500, 'Invited'),
+                ('Márcio', 'Márcio Tavares', '21990099887', 'marcio.tavares@example.com', GETDATE(), 'Niterói', 'Vídeo e Animação', 'Sou professor de história e quero fazer vídeos educativos para crianças carentes com linguagem acessível e divertida.', 5300, 'Invited');
