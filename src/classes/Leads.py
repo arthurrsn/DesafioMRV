@@ -51,7 +51,7 @@ class Leads:
 
         # Informações para envio e recebimento do email.
         self.email_from, self.password_from = email_credentials()
-        self.email_to = 'arthur.ribeiro.sn@gmail.com' # Caso queira enviar email para a pessoa que abriu chamado é apenas trocar o valor por self.email
+        self.email_to = 'vendas@test.com' # Caso queira enviar email para a pessoa que abriu chamado é apenas trocar o valor por self.email
         
         
 
