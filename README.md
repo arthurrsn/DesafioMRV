@@ -67,3 +67,12 @@ Para que o app funcione corretamente logo após a instalação, você pode copia
 2. Copie tudo e cole em uma nova query dentro do SQL Server.
 
 Obs: Lembre configurar seu banco de dados com as informações para a conexão correta.
+
+---
+
+## 📸 Execução
+
+Abaixo uma imagem de como o sistema aparece durante a execução:
+
+![image](https://github.com/user-attachments/assets/57b249a5-19bc-4928-a259-1d41425d2c9c)
+
