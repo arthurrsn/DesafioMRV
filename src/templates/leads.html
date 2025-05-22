@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DesafioMRV</title>
+</head>
+<body>
+    <form action="{{url_for('leads_accept_declined')}}" method="post">
+        <p>
+            {% for i in leads_invited %}
+                {{i.id}}<br>
+                {{i.username}}<br>
+                {{i.date_created}}<br>
+                {{i.suburb}}<br>
+                {{i.category}}<br>
+                {{i.details}}<br>
+                {{i.price}}<br>
+                <br>
+                <button type="submit" name="decisao_lead" value="accepted|{{i.id}}">aceitar</button>
+                <button type="submit" name="decisao_lead" value="declined|{{i.id}}">recusar</button>
+
+                <br><br>
+
+            {% endfor %}
+        </p>
+    </form>
+<br>
+
+    <form action="{{url_for('leads_finalized')}}" method="post">
+        <p>
+        {% for i in leads_accepted %}
+                    {{i.id}}<br>
+                    {{i.username}}<br>
+                    {{i.contact_phone_number}}<br>
+                    {{i.email}}<br>
+                    {{i.date_created}}<br>
+                    {{i.suburb}}<br>
+                    {{i.category}}<br>
+                    {{i.details}}<br>
+                    {{i.price}}<br>
+
+                    <button type="submit" name="finalizar" value="finalized|{{i.id}}">Finalizar Lead</button>
+
+                    <br><br><br>
+                {% endfor %}
+        </p>
+    </form>
+
+    
+</body>
+</html>
