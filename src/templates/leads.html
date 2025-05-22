@@ -1,50 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DesafioMRV</title>
+    <style>
+        .leads {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        section {
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+        }
+
+        button {
+            background-color: rgb(255, 153, 0);
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <form action="{{url_for('leads_accept_declined')}}" method="post">
-        <p>
+    <div class="leads">
+        <section>
+            <h2>Invited</h2><br>
             {% for i in leads_invited %}
-                {{i.id}}<br>
-                {{i.username}}<br>
-                {{i.date_created}}<br>
-                {{i.suburb}}<br>
-                {{i.category}}<br>
-                {{i.details}}<br>
-                {{i.price}}<br>
-                <br>
-                <button type="submit" name="decisao_lead" value="accepted|{{i.id}}">aceitar</button>
-                <button type="submit" name="decisao_lead" value="declined|{{i.id}}">recusar</button>
-
-                <br><br>
-
+                <form action="{{ url_for('leads_accept_declined') }}" method="post">
+                    <p>
+                        First Name: {{ i.username }}<br>
+                        Date Created: {{ i.date_created }}
+                        <br><br>
+                        Suburb: {{ i.suburb }}  |  Category: {{ i.category }}  |  Job ID: {{ i.id }}
+                        <br><br>        
+                        Details: {{ i.details }}
+                        <br><br>
+                        <button type="submit" name="decisao_lead" value="accepted|{{ i.id }}">Aceitar</button>
+                        <button type="submit" name="decisao_lead" value="declined|{{ i.id }}">Recusar</button>
+                        Price: ${{ i.price }}<br>
+                        <br>
+                        ----------
+                        <br>
+                    </p>
+                </form>
             {% endfor %}
-        </p>
-    </form>
-<br>
+        </section>
 
-    <form action="{{url_for('leads_finalized')}}" method="post">
-        <p>
-        {% for i in leads_accepted %}
-                    {{i.id}}<br>
-                    {{i.username}}<br>
-                    {{i.contact_phone_number}}<br>
-                    {{i.email}}<br>
-                    {{i.date_created}}<br>
-                    {{i.suburb}}<br>
-                    {{i.category}}<br>
-                    {{i.details}}<br>
-                    {{i.price}}<br>
-
-                    <button type="submit" name="finalizar" value="finalized|{{i.id}}">Finalizar Lead</button>
-
-                    <br><br><br>
-                {% endfor %}
-        </p>
-    </form>
-
-    
+        <section>
+            <h2>Accepted</h2><br>
+            {% for i in leads_accepted %}
+                <form action="{{ url_for('leads_finalized') }}" method="post">
+                    <p>
+                        Full Name: {{ i.username }}<br>
+                        Date Created: {{ i.date_created }}
+                        <br><br>
+                        Suburb: {{ i.suburb }}  |  Category: {{ i.category }}  |  Job ID: {{ i.id }}  |  Price: ${{ i.price }}
+                        <br><br>
+                        Phone Number: {{ i.contact_phone_number }}  |  Email: {{ i.email }}
+                        <br><br>
+                        Details: {{ i.details }}<br>
+                        <br><br>
+                        <button type="submit" name="finalizar" value="finalized|{{ i.id }}">Finalizar Lead</button><br>
+                        <br>
+                        ----------
+                        <br>
+                    </p>
+                </form>
+            {% endfor %}
+        </section>
+    </div>
 </body>
 </html>
